@@ -26,10 +26,10 @@ function SocialRail() {
   const base = "p-2 rounded-full bg-[rgba(10,27,75,0.30)] hover:bg-[rgba(106,27,43,0.40)] transition";
   return (
     <div className="fixed left-3 top-1/3 hidden lg:flex flex-col items-center gap-3 z-40">
-      <a href="#" aria-label="LinkedIn" className={base}><Linkedin className="w-4 h-4" /></a>
-      <a href="#" aria-label="Facebook" className={base}><Facebook className="w-4 h-4" /></a>
-      <a href="#" aria-label="Instagram" className={base}><Instagram className="w-4 h-4" /></a>
-      <a href="#" aria-label="Twitter" className={base}><Twitter className="w-4 h-4" /></a>
+      <a href="#" aria-label="LinkedIn" className={base}><Linkedin className="w-4 h-4 text-white" /></a>
+      <a href="#" aria-label="Facebook" className={base}><Facebook className="w-4 h-4 text-white" /></a>
+      <a href="#" aria-label="Instagram" className={base}><Instagram className="w-4 h-4 text-white" /></a>
+      <a href="#" aria-label="Twitter" className={base}><Twitter className="w-4 h-4 text-white" /></a>
     </div>
   );
 }
@@ -91,7 +91,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden h-screen flex flex-col justify-center">
       <Navbar/>
       {/* Sticky Social Rail */}
       <SocialRail />

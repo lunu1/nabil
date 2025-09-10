@@ -3,6 +3,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Image as ImageIcon, Search, Tag } from "lucide-react";
+import BlogDetailsModal from "@/components/BlogDetailsModal";
+
 
 type Post = {
   id: string;
@@ -21,6 +23,8 @@ export default function BlogSectionPublic() {
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState("");
+  const [open, setOpen] = useState(false);
+const [activePost, setActivePost] = useState<Post | null>(null);
 
   useEffect(() => {
     let mounted = true;
@@ -180,17 +184,26 @@ export default function BlogSectionPublic() {
                       </div>
                     )}
 
-                    <Link
-                      href={`/blog/${p.slug}`}
-                      className="mt-5 inline-flex items-center gap-2 rounded-xl border border-[#6A1B2B]/60 px-3 py-1.5 hover:bg-[#6A1B2B]/20"
-                    >
-                      Read more <ArrowRight className="w-4 h-4" />
-                    </Link>
+                   <button
+  onClick={() => {
+    setActivePost(p);
+    setOpen(true);
+  }}
+  className="mt-5 inline-flex items-center gap-2 rounded-xl border border-[#6A1B2B]/60 px-3 py-1.5 hover:bg-[#6A1B2B]/20"
+>
+  Read more <ArrowRight className="w-4 h-4" />
+</button>
+
                   </div>
                 </article>
               ))}
         </div>
       </div>
+      <BlogDetailsModal
+  open={open}
+  onClose={() => setOpen(false)}
+  post={activePost}
+/>
     </section>
   );
 }
