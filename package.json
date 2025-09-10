@@ -2,9 +2,10 @@
   "name": "nabil-site",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+"scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "bash scripts/postbuild.sh",
     "start": "next start",
     "lint": "eslint"
   },
